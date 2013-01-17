@@ -229,7 +229,7 @@
 			if(options.cookieClickableDiv === "")
 			{
 				options.cookieClickableDiv = "cc-cookies-bodywrapper";
-				$('body').innerWrap("<div class='" + options.cookieClickableDiv + "'/>" )
+				$('body').innerWrap("<div class='" + options.cookieClickableDiv + "'/>" );
 			}
 			
 			$("." + options.cookieClickableDiv).click(acceptCookies);
