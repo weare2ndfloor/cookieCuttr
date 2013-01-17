@@ -52,7 +52,8 @@
             cookieNoMessage: false, // change to true hide message from all pages apart from your policy page
             cookieDomain: "",
 			cookieClickableOverlay: false,
-			cookieClickableDiv: ""
+			cookieClickableDiv: "",
+			cookieClickAnyLink: false
         };
         
 		var cookieOverlay = "";
@@ -62,7 +63,11 @@
 		
 		var acceptCookies = function(elmt)
 		{
-			elmt.preventDefault();
+			if(!options.cookieClickAnyLink)
+			{
+				elmt.preventDefault();
+			}
+			
             $.cookie("cc_cookie_accept", "cc_cookie_accept", {
                 expires: options.cookieExpires,
                 path: '/'
@@ -224,10 +229,15 @@
 			if(options.cookieClickableDiv === "")
 			{
 				options.cookieClickableDiv = "cc-cookies-bodywrapper";
-				$('body').innerWrap("<div class='" + options.cookieClickableDiv + "'/>" );
+				$('body').innerWrap("<div class='" + options.cookieClickableDiv + "'/>" )
 			}
 			
 			$("." + options.cookieClickableDiv).click(acceptCookies);
+		}
+		
+		if(options.cookieClickAnyLink && !$cookieAccepted)
+		{
+			$("a").click(acceptCookies);
 		}
 		
         // for top bar
