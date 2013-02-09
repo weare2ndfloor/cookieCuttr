@@ -247,11 +247,13 @@
                 }
             } else {
                 $.cookie("cc_cookie_decline", null, {
-                    path: '/'
+                    path: '/',
+                    domain: options.cookieDomain
                 });
                 $.cookie("cc_cookie_accept", "cc_cookie_accept", {
                     expires: cookieExpires,
-                    path: '/'
+                    path: '/',
+                    domain: options.cookieDomain
                 });
             }
             $(".cc-cookies").fadeOut(function () {
@@ -263,10 +265,12 @@
         $('a.cc-cookie-reset').click(function (f) {
             f.preventDefault();
             $.cookie("cc_cookie_accept", null, {
-                path: '/'
+                path: '/',
+                domain: options.cookieDomain
             });
             $.cookie("cc_cookie_decline", null, {
-                path: '/'
+                path: '/',
+                domain: options.cookieDomain
             });
             $(".cc-cookies").fadeOut(function () {
                 // reload page to activate cookies
@@ -278,10 +282,12 @@
             g.preventDefault();
             $.cookie("cc_cookie_accept", "cc_cookie_accept", {
                 expires: cookieExpires,
-                path: '/'
+                path: '/',
+                domain: options.cookieDomain
             });
             $.cookie("cc_cookie_decline", null, {
-                path: '/'
+                path: '/',
+                domain: options.cookieDomain
             });
             // reload page to activate cookies
             location.reload();
