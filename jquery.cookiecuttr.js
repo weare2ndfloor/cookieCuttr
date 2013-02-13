@@ -220,11 +220,13 @@
             e.preventDefault();
             if ($(this).is('[href$=#decline]')) {
                 $.cookie("cc_cookie_accept", null, {
-                    path: '/'
+                    path: '/',
+                    domain: options.cookieDomain
                 });
                 $.cookie("cc_cookie_decline", "cc_cookie_decline", {
                     expires: cookieExpires,
-                    path: '/'
+                    path: '/',
+                    domain: options.cookieDomain
                 });
                 if (options.cookieDomain) {
                     // kill google analytics cookies
