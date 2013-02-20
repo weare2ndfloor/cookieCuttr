@@ -50,15 +50,19 @@
             cookieDiscreetLinkText          : "Cookies?",
             cookieDiscreetPosition          : "topleft", //options: topleft, topright, bottomleft, bottomright
             cookieNoMessage                 : false, // change to true hide message from all pages apart from your policy page
-            cookieDomain                    : ""
+            cookieDomain                    : "",
+            cookieAcceptName                : 'cc_cookie_accept',
+            cookieAcceptValue               : 'cc_cookie_accept',
+            cookieDeclineName               : 'cc_cookie_decline',
+            cookieDeclineValue              : 'cc_cookie_decline'
         };
 
         options               = $.extend({}, defaults, options);
         options.cookieMessage = options.cookieMessage.replace('{{cookiePolicyLink}}', options.cookiePolicyLink);
 
         // cookie identifier
-        var $cookieAccepted = $.cookie('cc_cookie_accept')  == 'cc_cookie_accept';
-        var $cookieDeclined = $.cookie('cc_cookie_decline') == 'cc_cookie_decline';
+        var $cookieAccepted = $.cookie(options.cookieAcceptName)  == options.cookieAcceptValue;
+        var $cookieDeclined = $.cookie(options.cookieDeclineName) == options.cookieDeclineValue;
 
         $.cookieAccepted = function () { return $cookieAccepted; };
         $.cookieDeclined = function () { return $cookieDeclined; };
@@ -127,15 +131,13 @@
             (options.cookieNotificationLocationBottom && options.cookieDiscreetLink && options.cookiePolicyPage)
         ) $('div.cc-cookies').css({top: 'auto', bottom: 0});
 
-        // click handlers, setting the cookies ...
-
         // handler: for [top/bottom] bar
         $('.cc-cookie-accept, .cc-cookie-decline').click(function (e) {
             e.preventDefault();
 
             if ($(this).is('[href$=#decline]')) {
-                $.cookie('cc_cookie_accept', null, { path: '/' });
-                $.cookie('cc_cookie_decline', 'cc_cookie_decline', { expires: options.cookieExpires, path: '/'});
+                $.cookie(options.cookieAcceptName, null, { path: '/' });
+                $.cookie(options.cookieDeclineName, options.cookieDeclineValue, { expires: options.cookieExpires, path: '/'});
 
                 if (options.cookieDomain) {
                     // kill google analytics cookies
@@ -145,8 +147,8 @@
                     $.cookie("__utmz", null, { domain: '.' + options.cookieDomain, path: '/' });
                 }
             } else {
-                $.cookie('cc_cookie_decline', null, { path: '/' });
-                $.cookie('cc_cookie_accept', 'cc_cookie_accept', { expires: options.cookieExpires, path: '/' });
+                $.cookie(options.cookieDeclineName, null, { path: '/' });
+                $.cookie(options.cookieAcceptName, options.cookieAcceptValue, { expires: options.cookieExpires, path: '/' });
             }
 
             $(".cc-cookies").fadeOut(function () {
@@ -158,8 +160,8 @@
         $('a.cc-cookie-reset').click(function (f) {
             f.preventDefault();
 
-            $.cookie('cc_cookie_accept', null,  { path: '/' });
-            $.cookie('cc_cookie_decline', null, { path: '/' });
+            $.cookie(options.cookieAcceptName, null,  { path: '/' });
+            $.cookie(options.cookieDeclineName, null, { path: '/' });
 
             $(".cc-cookies").fadeOut(function () {
                 location.reload();
@@ -170,8 +172,8 @@
         $('.cc-cookies-error a.cc-cookie-accept').click(function (g) {
             g.preventDefault();
 
-            $.cookie('cc_cookie_accept', 'cc_cookie_accept', { expires: options.cookieExpires, path: '/'});
-            $.cookie('cc_cookie_decline', null, { path: '/'});
+            $.cookie(options.cookieAcceptName, options.cookieAcceptValue, { expires: options.cookieExpires, path: '/'});
+            $.cookie(options.cookieDeclineName, null, { path: '/'});
 
             location.reload();
         });
