@@ -1,0 +1,10 @@
+/**
+ * pretty background colors for ie versions below v9,
+ *
+ * taken from: https://github.com/marcodejongh/cookieCuttr/commit/ef63db0a22cbcc1568bf2d17e6f2bbe1b89e5b07
+ */
+.cc-cookies {
+    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#F2565656,endColorstr=#F2565656);
+    filter    :progid:DXImageTransform.Microsoft.gradient(startColorstr=#F2565656,endColorstr=#F2565656);
+    zoom      :1;
+}
