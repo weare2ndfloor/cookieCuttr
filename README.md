@@ -5,13 +5,18 @@ A tailorable jQuery plugin to deal with the EU Cookie Law.
 
 **We're not accepting any more pull requests, someone else is working on a new version at the moment, when its ready, we'll link it here.**
 
+Quick start
+-----------
+
+- Install with [Bower](http://bower.io): `bower install git://github.com/mrgrt/cookieCuttr.git`.
+
 Dependencies
 ------------
 
 * [jQuery](https://github.com/jquery/jquery)
 * [jQuery.cookie](https://github.com/carhartl/jquery-cookie)
 
-Useage
+Usage
 ------
 
 Add `jquery.cookiecuttr.js`, after jQuery and jQuery.cookie, and `cookiecuttr.css` to the head of your HTML document. Then call CookieCuttr on document ready.

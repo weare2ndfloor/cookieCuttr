@@ -1,0 +1,30 @@
+{
+  "name": "cookieCuttr",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mrgrt/cookieCuttr",
+  "authors": [
+    "weare2ndfloor <hello@weare2ndfloor.com>",
+    "Chris Wharton <chris@weare2ndfloor.com>",
+    "Grahame Thomson <mrgrahamethomson@gmail.com>"
+  ],
+  "description": "A tailorable jQuery plugin to deal with the EU Cookie Law.",
+  "main": [
+    "./jquery.cookiecuttr.js",
+    "./cookiecuttr.css"
+  ],
+  "keywords": [
+    "cookie"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0",
+    "jquery.cookie" : ">= 1.4.1"
+  }
+}
