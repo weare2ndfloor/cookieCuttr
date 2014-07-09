@@ -9,8 +9,8 @@
   ],
   "description": "A tailorable jQuery plugin to deal with the EU Cookie Law.",
   "main": [
-    "jquery.cookiecuttr.js",
-    "cookiecuttr.css"
+    "./jquery.cookiecuttr.js",
+    "./cookiecuttr.css"
   ],
   "keywords": [
     "cookie"
