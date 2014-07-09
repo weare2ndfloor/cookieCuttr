@@ -8,7 +8,7 @@ A tailorable jQuery plugin to deal with the EU Cookie Law.
 Quick start
 -----------
 
-- Install with [Bower](http://bower.io): `bower install bootstrap`.
+- Install with [Bower](http://bower.io): `bower install git://github.com/mrgrt/cookieCuttr.git`.
 
 Dependencies
 ------------
