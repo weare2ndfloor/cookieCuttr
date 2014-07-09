@@ -6,7 +6,10 @@
     "Grahame Thomson <mrgrahamethomson@gmail.com>"
   ],
   "description": "A tailorable jQuery plugin to deal with the EU Cookie Law.",
-  "main": "jquery.cookiecuttr.js",
+  "main": [
+    "jquery.cookiecuttr.js",
+    "cookiecuttr.css"
+  ],
   "keywords": [
     "cookie"
   ],
@@ -17,5 +20,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0"
+  }
 }
