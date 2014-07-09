@@ -5,6 +5,11 @@ A tailorable jQuery plugin to deal with the EU Cookie Law.
 
 **We're not accepting any more pull requests, someone else is working on a new version at the moment, when its ready, we'll link it here.**
 
+Quick start
+-----------
+
+- Install with [Bower](http://bower.io): `bower install bootstrap`.
+
 Dependencies
 ------------
 
