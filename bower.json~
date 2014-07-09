@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "homepage": "https://github.com/mrgrt/cookieCuttr",
   "authors": [
+    "weare2ndfloor <hello@weare2ndfloor.com>",
     "Grahame Thomson <mrgrahamethomson@gmail.com>"
   ],
   "description": "A tailorable jQuery plugin to deal with the EU Cookie Law.",
