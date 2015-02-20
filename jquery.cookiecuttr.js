@@ -5,7 +5,7 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT
  * HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED,
  * INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR
@@ -14,12 +14,12 @@
  * COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.COPYRIGHT HOLDERS WILL NOT
  * BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL
  * DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENTATION.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://gnu.org/licenses/>.
- 
+
  Documentation available at http://cookiecuttr.com
- 
+
  */
 (function ($) {
     $.cookieCuttr = function (options) {
@@ -42,15 +42,17 @@
             cookieDeclineButtonText: "DECLINE COOKIES",
             cookieResetButtonText: "RESET COOKIES FOR THIS WEBSITE",
             cookieWhatAreLinkText: "What are cookies?",
-            cookieNotificationLocationBottom: false, // top or bottom - they are your only options, so true for bottom, false for top            
+            cookieNotificationLocationBottom: false, // top or bottom - they are your only options, so true for bottom, false for top
             cookiePolicyPage: false,
             cookiePolicyPageMessage: 'Please read the information below and then choose from the following options',
             cookieDiscreetLink: false,
             cookieDiscreetReset: false,
             cookieDiscreetLinkText: "Cookies?",
-            cookieDiscreetPosition: "topleft", //options: topleft, topright, bottomleft, bottomright         
+            cookieDiscreetPosition: "topleft", //options: topleft, topright, bottomleft, bottomright
             cookieNoMessage: false, // change to true hide message from all pages apart from your policy page
-            cookieDomain: ""
+            cookieDomain: "",
+            cookieReload: true, // change to false to avoid reloading the page when accepting the cookies
+            cookieImplicit: false // change to true to display the cookie banner only once (implicit agreement)
         };
         var options = $.extend(defaults, options);
         var message = defaults.cookieMessage.replace('{{cookiePolicyLink}}', defaults.cookiePolicyLink);
@@ -83,6 +85,8 @@
         var cookieDiscreetLinkText = options.cookieDiscreetLinkText;
         var cookieDiscreetPosition = options.cookieDiscreetPosition;
         var cookieNoMessage = options.cookieNoMessage;
+        var cookieReload = options.cookieReload;
+        var cookieImplicit = options.cookieImplicit;
         // cookie identifier
         var $cookieAccepted = $.cookie('cc_cookie_accept') == "cc_cookie_accept";
         $.cookieAccepted = function () {
@@ -215,6 +219,14 @@
         }
         // setting the cookies
 
+        // Implicit agreement
+        if (!$cookieAccepted && cookieImplicit) {
+            $.cookie("cc_cookie_accept", "cc_cookie_accept", {
+                expires: cookieExpires,
+                path: '/'
+            });
+        }
+
         // for top bar
         $('.cc-cookie-accept, .cc-cookie-decline').click(function (e) {
             e.preventDefault();
@@ -256,7 +268,9 @@
             }
             $(".cc-cookies").fadeOut(function () {
                 // reload page to activate cookies
-                location.reload();
+                if (cookieReload) {
+                    location.reload();
+                }
             });
         });
         //reset cookies
