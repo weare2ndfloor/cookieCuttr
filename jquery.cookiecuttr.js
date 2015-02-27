@@ -190,15 +190,15 @@
             }
             if (cookiePolicyPage) { // show policy page overlay
                 if (appOrPre) {
-                    $('body').append('<div class="cc-cookies ' + cookieOverlay + '">' + cookiePolicyPageMessage + " " + ' <a href="#accept" class="cc-cookie-accept">' + cookieAcceptButtonText + '</a> ' + ' <a href="#decline" class="cc-cookie-decline">' + cookieDeclineButtonText + '</a> ' + '</div>');
+                    $('body').append('<div class="cc-cookies' + cookieOverlay + '"><div class="policy-message">' + cookiePolicyPageMessage + " " + '</div><div class="actions"><a href="#accept" class="cc-cookie-accept">' + cookieAcceptButtonText + '</a> ' + ' <a href="#decline" class="cc-cookie-decline">' + cookieDeclineButtonText + '</a> ' + '</div>');
                 } else {
-                    $('body').prepend('<div class="cc-cookies ' + cookieOverlay + '">' + cookiePolicyPageMessage + " " + ' <a href="#accept" class="cc-cookie-accept">' + cookieAcceptButtonText + '</a> ' + ' <a href="#decline" class="cc-cookie-decline">' + cookieDeclineButtonText + '</a> ' + '</div>');
+                    $('body').prepend('<div class="cc-cookies' + cookieOverlay + '"><div class="policy-message">' + cookiePolicyPageMessage + " " + '</div><div class="actions"><a href="#accept" class="cc-cookie-accept">' + cookieAcceptButtonText + '</a> ' + ' <a href="#decline" class="cc-cookie-decline">' + cookieDeclineButtonText + '</a> ' + '</div>');
                 }
             } else if ((!cookieAnalytics) && (!cookieDiscreetLink)) { // show privacy policy option
                 if (appOrPre) {
-                    $('body').append('<div class="cc-cookies ' + cookieOverlay + '">' + cookieMessage + cookieAccept + cookieDecline + '</div>');
+                    $('body').append('<div class="cc-cookies' + cookieOverlay + '"><div class="policy-message">' + cookieMessage + '</div><div class="actions">' + cookieAccept + cookieDecline + '</div>');
                 } else {
-                    $('body').prepend('<div class="cc-cookies ' + cookieOverlay + '">' + cookieMessage + cookieAccept + cookieDecline + '</div>');
+                    $('body').prepend('<div class="cc-cookies' + cookieOverlay + '"><div class="policy-message">' + cookieMessage + '</div><div class="actions">' + cookieAccept + cookieDecline + '</div>');
                 }
             }
         }
