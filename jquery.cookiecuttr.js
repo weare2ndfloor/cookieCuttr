@@ -84,7 +84,7 @@
         var cookieDiscreetPosition = options.cookieDiscreetPosition;
         var cookieNoMessage = options.cookieNoMessage;
         // cookie identifier
-        var $cookieAccepted = $.cookie('cc_cookie_accept') == "cc_cookie_accept";
+        var $cookieAccepted = $.cookie('cc_cookie_accept') == "cc_cookie_accept" || !!navigator.CookiesOK;
         $.cookieAccepted = function () {
             return $cookieAccepted;
         };
