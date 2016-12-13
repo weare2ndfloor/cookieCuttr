@@ -220,11 +220,13 @@
             e.preventDefault();
             if ($(this).is('[href$=#decline]')) {
                 $.cookie("cc_cookie_accept", null, {
-                    path: '/'
+                    path: '/',
+                    domain: options.cookieDomain
                 });
                 $.cookie("cc_cookie_decline", "cc_cookie_decline", {
                     expires: cookieExpires,
-                    path: '/'
+                    path: '/',
+                    domain: options.cookieDomain
                 });
                 if (options.cookieDomain) {
                     // kill google analytics cookies
@@ -247,11 +249,13 @@
                 }
             } else {
                 $.cookie("cc_cookie_decline", null, {
-                    path: '/'
+                    path: '/',
+                    domain: options.cookieDomain
                 });
                 $.cookie("cc_cookie_accept", "cc_cookie_accept", {
                     expires: cookieExpires,
-                    path: '/'
+                    path: '/',
+                    domain: options.cookieDomain
                 });
             }
             $(".cc-cookies").fadeOut(function () {
@@ -263,10 +267,12 @@
         $('a.cc-cookie-reset').click(function (f) {
             f.preventDefault();
             $.cookie("cc_cookie_accept", null, {
-                path: '/'
+                path: '/',
+                domain: options.cookieDomain
             });
             $.cookie("cc_cookie_decline", null, {
-                path: '/'
+                path: '/',
+                domain: options.cookieDomain
             });
             $(".cc-cookies").fadeOut(function () {
                 // reload page to activate cookies
@@ -278,10 +284,12 @@
             g.preventDefault();
             $.cookie("cc_cookie_accept", "cc_cookie_accept", {
                 expires: cookieExpires,
-                path: '/'
+                path: '/',
+                domain: options.cookieDomain
             });
             $.cookie("cc_cookie_decline", null, {
-                path: '/'
+                path: '/',
+                domain: options.cookieDomain
             });
             // reload page to activate cookies
             location.reload();
