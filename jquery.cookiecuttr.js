@@ -218,7 +218,7 @@
         // for top bar
         $('.cc-cookie-accept, .cc-cookie-decline').click(function (e) {
             e.preventDefault();
-            if ($(this).is('[href$=#decline]')) {
+            if ($(this).is("[href$='#decline']")) {
                 $.cookie("cc_cookie_accept", null, {
                     path: '/'
                 });
